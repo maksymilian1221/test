@@ -1,1 +1,5 @@
+HEAD
 Wersja z galezi test
+
+Wersja z galezi test_2
+test_2
