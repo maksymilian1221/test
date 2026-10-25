@@ -11,6 +11,7 @@ class Student:
     def __str__(self):
         return f"Student: {self.name} (Średnia: {sum(self.marks)/len(self.marks):.2f})"
 
+
 if __name__ == "__main__":
     student1 = Student("Jan Kowalski", [60, 70, 80, 55])
     student2 = Student("Anna Nowak", [40, 50, 30, 45])

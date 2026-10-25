@@ -40,14 +40,16 @@ def pobierz_browary(limit: int = 20) -> list[Brewery]:
     )
     response.raise_for_status()
     dane = response.json()
-    return [Brewery(**{k: v for k, v in b.items() if k in Brewery.__dataclass_fields__}) for b in dane]
+    return [
+        Brewery(**{k: v for k, v in b.items() if k in Brewery.__dataclass_fields__})
+        for b in dane
+    ]
 
 
 if __name__ == "__main__":
     browary = pobierz_browary(20)
     for browar in browary:
         print(browar)
-
 
 
 @dataclass
@@ -88,12 +90,17 @@ def pobierz_browary(limit: int = 20, city: Optional[str] = None) -> list[Brewery
     )
     response.raise_for_status()
     dane = response.json()
-    return [Brewery(**{k: v for k, v in b.items() if k in Brewery.__dataclass_fields__}) for b in dane]
+    return [
+        Brewery(**{k: v for k, v in b.items() if k in Brewery.__dataclass_fields__})
+        for b in dane
+    ]
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Pobiera browary z OpenBreweryDB")
-    parser.add_argument("--city", type=str, default=None, help="Ogranicz wyniki do miasta")
+    parser.add_argument(
+        "--city", type=str, default=None, help="Ogranicz wyniki do miasta"
+    )
     args = parser.parse_args()
 
     browary = pobierz_browary(20, args.city)
